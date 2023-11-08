@@ -50,6 +50,12 @@ a:hover {
 .hidden {
   display: none;
 }
+.visibility {
+  visibility: visible;
+}
+.visibility-hidden {
+  visibility: hidden;
+}
 body {
   overflow-x: hidden;
 }
@@ -95,7 +101,8 @@ header {
   right: 0;
   bottom: 0;
   width: 100%;
-  /* border: 3px solid black; */
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
 }
 .navigation-bar a {
   color: var(--headings-color);
@@ -139,9 +146,12 @@ header {
 }
 .arrow-up {
   position: absolute;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 .sub {
+  display: none;
+}
+.sub-dd {
   display: flex;
   flex-direction: column;
   background-color: #ddd;
@@ -149,7 +159,8 @@ header {
   border-radius: 10px;
   margin: 1em 0;
   padding: 1em 0;
-  display: none;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
 }
 .connect {
   border-bottom: 1px solid #ddd;
@@ -306,7 +317,9 @@ header {
   text-align: center;
   margin: 2em 0;
 }
-
+.desktop-laptop {
+  display: none;
+}
 /* FOOTER STYLING */
 footer {
   background-color: var(--footer-background-color);
@@ -329,16 +342,6 @@ footer {
   font-size: 1.2em;
   font-weight: 300;
   margin: 0.5em 0;
-}
-
-/* ATRRIBUTION STYLING */
-.attribution {
-  font-size: 11px;
-  text-align: center;
-  margin: 2em 0;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
 }
 
 /* Desktop design - 500px */
@@ -389,6 +392,7 @@ footer {
     display: flex;
     gap: 0.5em;
     align-items: center;
+    padding: 1em 0;
   }
   .desktop-arrows {
     display: flex;
@@ -396,7 +400,7 @@ footer {
   }
   .desktop-arrow-up {
     position: absolute;
-    display: none;
+    visibility: hidden;
   }
   .desktop-sub-links {
     display: flex;
@@ -410,13 +414,49 @@ footer {
     border-radius: 10px;
     box-shadow: 1px 3px 10px 4px rgba(0, 0, 0, 0.4);
     display: none;
+    animation: growDown 500ms ease-in-out forwards;
+    transform-origin: top center;
   }
+
   .desktop-sub-links a {
     color: var(--headings-color);
     margin: 0.2em 0;
   }
   .desktop-sub-links a:hover {
     font-weight: 900;
+  }
+
+  /* PRODUCT NAV LINK HOVERING */
+  .desktop-product:hover .desktop-sub-links {
+    display: flex;
+  }
+  .desktop-product:hover .desktop-arrow-up {
+    visibility: visible;
+  }
+  .desktop-product:hover .desktop-arrow-down {
+    visibility: hidden;
+  }
+
+  /* COMPANY NAV LINK HOVERING */
+  .desktop-company:hover .desktop-sub-links {
+    display: flex;
+  }
+  .desktop-company:hover .desktop-arrow-up {
+    visibility: visible;
+  }
+  .desktop-company:hover .desktop-arrow-down {
+    visibility: hidden;
+  }
+
+  /* CONNECT NAV LINK HOVERING */
+  .desktop-connect:hover .desktop-sub-links {
+    display: flex;
+  }
+  .desktop-connect:hover .desktop-arrow-up {
+    visibility: visible;
+  }
+  .desktop-connect:hover .desktop-arrow-down {
+    visibility: hidden;
   }
   .desktop-secondary-nav {
     display: flex;
@@ -510,6 +550,7 @@ footer {
     display: flex;
   }
   .desktop-laptop {
+    display: flex;
     width: 100%;
     margin-left: -9.5em;
   }
@@ -523,4 +564,27 @@ footer {
     justify-content: space-between;
     padding: 0 9em 0 5em;
   }
+}
+
+/* KEYFRAMES/ANIMATION STYLING */
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* ATRRIBUTION STYLING */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin: 2em 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
