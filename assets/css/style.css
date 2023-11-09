@@ -127,6 +127,7 @@ header {
 .connect {
   text-align: center;
   width: 90%;
+  padding: 0.5em 0;
 }
 .connect {
   padding-bottom: 2em;
